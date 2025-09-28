@@ -37,6 +37,16 @@ header p {
     opacity: 0.9;
 }
 
+.warning {
+    background: rgba(255, 193, 7, 0.2);
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    color: #ffc107;
+    font-weight: 600;
+}
+
 /* 메인 컨텐츠 */
 main {
     display: grid;
