@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 YouTube 자동화 앱</h1>
+            <p>YouTube URL을 입력하여 자동 재생을 시작하세요</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <form id="urlForm">
+                    <div class="input-group">
+                        <label for="youtubeUrl">YouTube URL:</label>
+                        <input 
+                            type="url" 
+                            id="youtubeUrl" 
+                            name="url" 
+                            placeholder="https://www.youtube.com/watch?v=..." 
+                            required
+                        >
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" id="startBtn" class="btn btn-primary">
+                            🚀 시작
+                        </button>
+                        <button type="button" id="stopBtn" class="btn btn-danger" disabled>
+                            ⏹️ 중지
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="status-section">
+                <h3>📊 상태 정보</h3>
+                <div class="status-info">
+                    <div class="status-item">
+                        <span class="label">현재 세션:</span>
+                        <span id="currentSession">없음</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">상태:</span>
+                        <span id="sessionStatus">대기 중</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">활성 세션 수:</span>
+                        <span id="activeSessions"><%= activeSessions %></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logs-section">
+                <h3>📝 실시간 로그</h3>
+                <div id="logs" class="logs-container">
+                    <div class="log-item info">
+                        <span class="timestamp">[시작]</span>
+                        <span class="message">앱이 준비되었습니다. YouTube URL을 입력하세요.</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>⚠️ 주의: 이 도구는 교육/연구 목적으로만 사용하세요.</p>
+        </footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
